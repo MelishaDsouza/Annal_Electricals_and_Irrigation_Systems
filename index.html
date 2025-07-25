@@ -17,12 +17,27 @@
   />
 </head>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+
 
 <body>
-    <header>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Annal Electricals Logo" />
+      <span>Annal Electricals & Irrigation System</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>  
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+
+  </nav>
+    <!-- <header>
 
         <div class="logo">
           <img src="images\logo.png" alt="Annal Electricals Logo" />
@@ -38,7 +53,7 @@
             </ul>
           </nav>
           
-      </header>
+      </header> -->
       
 
   <section class="hero" id="home" data-aos="fade-up">
@@ -210,11 +225,6 @@
       <p>Sprinkler on landscapes in resort</p>
     </div>
 
-    <!-- <div class="gallery-item" onclick="openPreview(this)">
-      <img src="images/sprinkler2.png" alt="Smart Irrigation Network ">
-      <h3>Smart Irrigation Network</h3>
-      <p>Irrigation</p>
-    </div> -->
 
     <div class="gallery-item" onclick="openPreview(this)">
       <img src="images/sprinkler3.png" alt="Smart Irrigation Network">
@@ -228,11 +238,6 @@
       <p>At Mount Carmel School, Mangalore</p>
     </div>
 
-    <!-- <div class="gallery-item" onclick="openPreview(this)">
-      <img src="images/fountain2.png" alt="Water Fountain">
-      <h3>Water Fountain</h3>
-      <p>Fountains</p>
-    </div> -->
 
     <div class="gallery-item" onclick="openPreview(this)">
       <img src="images/fountain3.png" alt="Water Fountain">
@@ -242,19 +247,19 @@
   </div>
 </section>
 
-<!-- Image Preview Modal (Optional) -->
+
 <div id="previewModal" class="preview-modal" onclick="closePreview()">
   <img id="previewImage" src="" alt="Preview" />
 </div>
 
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
       duration: 1000, // animation duration in ms
       once: true      // animation runs only once
     });
-  </script>
+  </script> -->
 
 
 <!-- Contact Section -->
@@ -304,6 +309,7 @@
     </div>
 
       <div class="social-icons">
+        <p>Connect with us !</p>
         <a href="https://www.instagram.com/annalelectricals?igsh=cHF2ZHc5NzJ3bmlx&utm_source=qr" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
@@ -318,11 +324,11 @@
     <div class="footer-section">
       <h4>🔗 Quick Links</h4>
       <ul>
-        <li><a href="#home">🏠 Home</a></li>
-        <li><a href="#services">💡 Services</a></li>
-        <li><a href="#about">📖 About</a></li>
-        <li><a href="#gallery">📷 Gallery</a></li>
-        <li><a href="#contact">📞 Contact</a></li>
+        <li><a href="#home">⚫️ Home</a></li>
+        <li><a href="#services">⚫️ Services</a></li>
+        <li><a href="#about">⚫️ About</a></li>
+        <li><a href="#gallery">⚫️ Gallery</a></li>
+        <li><a href="#contact">⚫️ Contact</a></li>
       </ul>
     </div>
 

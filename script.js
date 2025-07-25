@@ -1,4 +1,58 @@
 console.log("Website Loaded 🚀");
+function toggleMenu() {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("show");
+}
+
+// Automatically close the nav menu after clicking any link (for mobile)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function () {
+    if (window.innerWidth <= 768) {
+      document.getElementById("navLinks").classList.remove("show");
+    }
+  });
+});
+
+AOS.init({
+  once: false,      // ✅ Ensures animation runs every time the element is scrolled into view
+  duration: 800,    // Optional: controls animation duration in ms
+  mirror: true      // ✅ Optional: animate elements out while scrolling past them
+});
+
+document.querySelector('.cta-button').addEventListener('click', () => {
+  const heroSection = document.getElementById('home');
+  heroSection.classList.remove('aos-animate');
+  setTimeout(() => AOS.refreshHard(), 50);
+});
+
+
+function restartAnimation(el) {
+  el.style.animation = 'none';
+  el.offsetHeight; // Trigger reflow
+  el.style.animation = '';
+}
+
+// Example: On scroll
+window.addEventListener('scroll', () => {
+  const hero = document.querySelector('.hero');
+  const content = document.querySelector('.content');
+  const card = document.querySelector('.impact-card');
+
+  if (isElementInViewport(hero)) {
+    restartAnimation(hero);
+    restartAnimation(content);
+    restartAnimation(card);
+  }
+});
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
 
 const serviceItems = document.querySelectorAll('.service-item');
 const serviceDetails = document.getElementById('service-details');
@@ -98,19 +152,36 @@ serviceItems.forEach(item => {
 });
 
 
+// function openPreview(el) {
+//   const imgSrc = el.querySelector("img").src;
+//   const modal = document.getElementById("previewModal");
+//   const previewImage = document.getElementById("previewImage");
+//   previewImage.src = imgSrc;
+//   modal.classList.add("show");
+//   document.body.classList.add("modal-open");
+// }
 
-//image preview
+// function closePreview() {
+//   const modal = document.getElementById("previewModal");
+//   modal.classList.remove("show");
+//   document.body.classList.remove("modal-open");
+// }
+
 function openPreview(el) {
-    const imgSrc = el.querySelector("img").src;
-    const modal = document.getElementById("previewModal");
-    const previewImage = document.getElementById("previewImage");
-    previewImage.src = imgSrc;
-    modal.classList.add("show");
-  }
-  
-  function closePreview() {
-    document.getElementById("previewModal").classList.remove("show");
-  }
+  // Disable preview for screens narrower than 768px (typical mobile breakpoint)
+  if (window.innerWidth < 768) return;
+
+  const imgSrc = el.querySelector("img").src;
+  const modal = document.getElementById("previewModal");
+  const previewImage = document.getElementById("previewImage");
+  previewImage.src = imgSrc;
+  modal.classList.add("show");
+}
+
+function closePreview() {
+  document.getElementById("previewModal").classList.remove("show");
+}
+
   
 // Animation on scroll (optional)
 window.addEventListener("scroll", () => {
@@ -123,4 +194,4 @@ window.addEventListener("scroll", () => {
       }
     });
   });
-  
+
